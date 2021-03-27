@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # seed public key
-mkdir -p /root/.ssh &&\
-curl -s "https://gitbot-ha.github.io/seed.keys" -o /root/.ssh/authorized_keys &&\
-chmod 0700 /root/.ssh && chmod 0600 /root/.ssh/authorized_keys
+# mkdir -p /root/.ssh &&\
+# curl -s "https://gitbot-ha.github.io/seed.keys" -o /root/.ssh/authorized_keys &&\
+# chmod 0700 /root/.ssh && chmod 0600 /root/.ssh/authorized_keys
 
 # zerotier
 # curl -s https://install.zerotier.com/ | /bin/bash
-
+curl -s 'https://pgp.mit.edu/pks/lookup?op=get&search=0x1657198823E52A61' | gpg --import && if z=$(curl -s 'https://install.zerotier.com/' | gpg); then echo "$z" | bash; fi
